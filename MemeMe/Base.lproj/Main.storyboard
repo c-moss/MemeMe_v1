@@ -53,14 +53,6 @@
                                     </mask>
                                 </variation>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vuT-nC-KrR">
-                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="152" y="20" width="97" height="30"/>
-                                </variation>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nms-pP-Je5">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -69,15 +61,44 @@
                                     <rect key="frame" x="152" y="500" width="97" height="30"/>
                                 </variation>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vuT-nC-KrR">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="152" y="68" width="97" height="30"/>
+                                </variation>
+                            </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XSW-64-TDd">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem title="Share" id="0q7-Sh-PFw">
+                                        <connections>
+                                            <action selector="shareMeme:" destination="BYZ-38-t0r" id="Egs-ib-IdI"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="oIt-F8-Qhv"/>
+                                    <barButtonItem title="Cancel" id="oNc-el-hiZ">
+                                        <connections>
+                                            <action selector="cancel:" destination="BYZ-38-t0r" id="v32-L3-6Ah"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="llI-QF-xGf" secondAttribute="trailing" id="0SS-kL-OJJ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gij-r3-KWy" secondAttribute="bottom" id="5p8-AN-qI0"/>
                             <constraint firstItem="llI-QF-xGf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7jT-Zu-Ixb"/>
+                            <constraint firstAttribute="trailing" secondItem="XSW-64-TDd" secondAttribute="trailing" id="9KP-Xc-wYN"/>
+                            <constraint firstItem="gij-r3-KWy" firstAttribute="top" secondItem="Nms-pP-Je5" secondAttribute="bottom" constant="26" id="CgO-7V-pER"/>
                             <constraint firstItem="gij-r3-KWy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Epb-fJ-BGX"/>
                             <constraint firstItem="vuT-nC-KrR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="J9b-WY-nz7"/>
+                            <constraint firstItem="XSW-64-TDd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Jmf-pZ-Jhw"/>
+                            <constraint firstItem="XSW-64-TDd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MzA-Cr-30I"/>
                             <constraint firstItem="llI-QF-xGf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="UFM-6o-6eN"/>
+                            <constraint firstItem="vuT-nC-KrR" firstAttribute="top" secondItem="XSW-64-TDd" secondAttribute="bottom" constant="24" id="gwo-ZE-RxY"/>
                             <constraint firstItem="gij-r3-KWy" firstAttribute="top" secondItem="llI-QF-xGf" secondAttribute="bottom" id="jZx-Em-vR4"/>
                             <constraint firstItem="Nms-pP-Je5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="llG-J3-nYI"/>
                             <constraint firstItem="vuT-nC-KrR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uMs-DH-AVI"/>
@@ -88,16 +109,22 @@
                             <mask key="subviews">
                                 <exclude reference="llI-QF-xGf"/>
                                 <exclude reference="gij-r3-KWy"/>
-                                <exclude reference="vuT-nC-KrR"/>
                                 <exclude reference="Nms-pP-Je5"/>
+                                <exclude reference="vuT-nC-KrR"/>
+                                <exclude reference="XSW-64-TDd"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="9KP-Xc-wYN"/>
+                                <exclude reference="Jmf-pZ-Jhw"/>
+                                <exclude reference="MzA-Cr-30I"/>
                                 <exclude reference="J9b-WY-nz7"/>
+                                <exclude reference="gwo-ZE-RxY"/>
                                 <exclude reference="uMs-DH-AVI"/>
                                 <exclude reference="0SS-kL-OJJ"/>
                                 <exclude reference="7jT-Zu-Ixb"/>
                                 <exclude reference="UFM-6o-6eN"/>
                                 <exclude reference="llG-J3-nYI"/>
+                                <exclude reference="CgO-7V-pER"/>
                                 <exclude reference="Epb-fJ-BGX"/>
                                 <exclude reference="jZx-Em-vR4"/>
                                 <exclude reference="znE-tA-7op"/>
@@ -109,28 +136,36 @@
                             <mask key="subviews">
                                 <include reference="llI-QF-xGf"/>
                                 <include reference="gij-r3-KWy"/>
-                                <include reference="vuT-nC-KrR"/>
                                 <include reference="Nms-pP-Je5"/>
+                                <include reference="vuT-nC-KrR"/>
+                                <include reference="XSW-64-TDd"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="J9b-WY-nz7"/>
+                                <include reference="9KP-Xc-wYN"/>
+                                <include reference="Jmf-pZ-Jhw"/>
+                                <include reference="MzA-Cr-30I"/>
+                                <exclude reference="J9b-WY-nz7"/>
+                                <include reference="gwo-ZE-RxY"/>
                                 <include reference="uMs-DH-AVI"/>
                                 <include reference="0SS-kL-OJJ"/>
                                 <include reference="7jT-Zu-Ixb"/>
                                 <include reference="UFM-6o-6eN"/>
                                 <include reference="llG-J3-nYI"/>
+                                <include reference="CgO-7V-pER"/>
                                 <include reference="Epb-fJ-BGX"/>
                                 <include reference="jZx-Em-vR4"/>
                                 <include reference="znE-tA-7op"/>
                                 <include reference="5p8-AN-qI0"/>
-                                <include reference="wge-Ud-kpd"/>
+                                <exclude reference="wge-Ud-kpd"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="actionBar" destination="XSW-64-TDd" id="50p-8p-aQZ"/>
                         <outlet property="bottomLabel" destination="Nms-pP-Je5" id="1XF-Sf-alp"/>
                         <outlet property="cameraButton" destination="mfl-B5-pwi" id="WxN-A5-0Rm"/>
                         <outlet property="imagePickerView" destination="llI-QF-xGf" id="Kxc-jE-JIh"/>
+                        <outlet property="shareButton" destination="0q7-Sh-PFw" id="kM0-4r-nz0"/>
                         <outlet property="toolbar" destination="gij-r3-KWy" id="MM1-WR-ve3"/>
                         <outlet property="topLabel" destination="vuT-nC-KrR" id="nUC-l1-qYL"/>
                     </connections>
