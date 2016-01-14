@@ -82,6 +82,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.presentViewController(pickerController, animated: true, completion: nil)
     }
     
+    /**
+     Handle the user selecting an image in the image picker. 
+     Set the contents of the image view to the selected image.
+     */
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         picker.dismissViewControllerAnimated(true, completion: nil)
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
@@ -90,45 +94,80 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
+    /**
+     Handle the user cancelling the image picker. 
+     Just dismiss the image picker.
+     */
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         picker.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    /**
+     Handle text field editing. If the current text is either of the default values, clear. Otherwise let the user edit the existing text.
+     */
     func textFieldDidBeginEditing(textField: UITextField) {
         if textField.text == defaultTopText || textField.text == defaultBottomText {
             textField.text = ""
         }
     }
     
+    /**
+     Subscribe to keyboard show / hide notifications
+     */
     func subscribeToKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:" , name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:" , name: UIKeyboardWillHideNotification, object: nil)
 
     }
     
+    /**
+     Unsubscribe from keyboard show / hide notifications
+     */
     func unsubscribeFromKeyboardNotifications() {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name:
-            UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
     
+    /**
+     Notification handler that gets called when the keyboard is shown
+     - parameter notification: Keyboard shown notification
+     */
     func keyboardWillShow(notification: NSNotification) {
+        //TODO: this doesn't work properly - find a better method
         view.frame.origin.y -= getKeyboardHeight(notification)
     }
     
+    /**
+     Notification handler that gets called when the keyboard is hidden
+     - parameter notification: Keyboard hidden notification
+     */
     func keyboardWillHide(notification: NSNotification) {
+        //TODO: this doesn't work properly - find a better method
         view.frame.origin.y += getKeyboardHeight(notification)
     }
     
+    /**
+     Retrieve the height of the keyboard
+     - parameter notification: The notification to retrieve the keyboard size from
+     */
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         return keyboardSize.CGRectValue().height
     }
     
+    /**
+     Save the meme to a Meme object
+     - parameter memedImage: UIImage representing the selected image with the meme text applied
+     */
     func save(memedImage: UIImage) {
         let meme = Meme(topText: topLabel.text, bottomText: bottomLabel.text, originalImage: imagePickerView.image!, memedImage: memedImage)
     }
     
+    /**
+     Apply meme text to the selected image by taking a screenshot of the view
+     - returns: A UIImage from the screenshot
+    */
     func generateMemedImage() -> UIImage {
         
         // Hide toolbars
