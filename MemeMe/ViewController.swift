@@ -21,6 +21,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var actionBar: UIToolbar!
     @IBOutlet weak var toolbar: UIToolbar!
     
+    var activeField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         topLabel.delegate = self
@@ -103,12 +105,25 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     /**
-     Handle text field editing. If the current text is either of the default values, clear. Otherwise let the user edit the existing text.
+     Handle text field editing.
      */
     func textFieldDidBeginEditing(textField: UITextField) {
+        // Set global reference for current active text field
+        activeField = textField
+        
+        // If the current text is either of the default values, clear. Otherwise let the user edit the existing text.
         if textField.text == defaultTopText || textField.text == defaultBottomText {
             textField.text = ""
         }
+    }
+    
+    /**
+     Determine whether editing should be allowed to end
+     */
+    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+        // Clear the global reference for current active text field
+        activeField = nil
+        return true
     }
     
     /**
@@ -133,8 +148,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
      - parameter notification: Keyboard shown notification
      */
     func keyboardWillShow(notification: NSNotification) {
-        //TODO: this doesn't work properly - find a better method
-        view.frame.origin.y -= getKeyboardHeight(notification)
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameBeginUserInfoKey] as! NSValue
+        
+        var viewRect = view.frame
+        let keyboardHeight = keyboardSize.CGRectValue().height
+        viewRect.size.height -= keyboardHeight
+        
+        // If the keyboard obscures the active text field, adjust view position
+        if !viewRect.contains(activeField.frame.origin) {
+            view.frame.origin.y -= keyboardHeight
+        }
     }
     
     /**
@@ -142,18 +166,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
      - parameter notification: Keyboard hidden notification
      */
     func keyboardWillHide(notification: NSNotification) {
-        //TODO: this doesn't work properly - find a better method
-        view.frame.origin.y += getKeyboardHeight(notification)
-    }
-    
-    /**
-     Retrieve the height of the keyboard
-     - parameter notification: The notification to retrieve the keyboard size from
-     */
-    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
-        let userInfo = notification.userInfo
-        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
-        return keyboardSize.CGRectValue().height
+        // Reset view origin to 0
+        view.frame.origin.y = 0
     }
     
     /**
