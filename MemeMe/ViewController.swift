@@ -36,12 +36,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         
         var textAttributes = [String: AnyObject]()
-        
+        // Set some text attributes
         textAttributes[NSStrokeColorAttributeName] = UIColor.blackColor()
         textAttributes[NSForegroundColorAttributeName] = UIColor.whiteColor()
         textAttributes[NSFontAttributeName] = UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!
         textAttributes[NSStrokeWidthAttributeName] = -3.0   //negative value means we see the foreground color
         
+        // Retrieve the existing default paragraph style from the top text field and use it in our new textAttributes, because otherwise it gets cleared and we lose center alignment
+        let defaultParagraphStyle = topLabel.defaultTextAttributes[NSParagraphStyleAttributeName]
+        textAttributes[NSParagraphStyleAttributeName] = defaultParagraphStyle
         
         topLabel.defaultTextAttributes = textAttributes
         bottomLabel.defaultTextAttributes = textAttributes
@@ -117,13 +120,34 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
+    @IBAction func textFieldDidChange(sender: UITextField) {
+        UIView.animateWithDuration(0.1, animations: {() in
+            sender.invalidateIntrinsicContentSize()
+            print("tc")
+        })
+    }
+    
     /**
      Determine whether editing should be allowed to end
      */
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
         // Clear the global reference for current active text field
         activeField = nil
+        
+        if textField.text == "" {
+            if textField == topLabel {
+                textField.text = defaultTopText
+            } else if textField == bottomLabel {
+                textField.text = defaultBottomText
+            }
+        }
+        
         return true
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
     }
     
     /**
