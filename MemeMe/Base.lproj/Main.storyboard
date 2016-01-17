@@ -19,8 +19,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="llI-QF-xGf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="llI-QF-xGf">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="j85-IM-buD"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="j85-IM-buD"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="20" width="400" height="580"/>
+                                    <mask key="constraints">
+                                        <exclude reference="j85-IM-buD"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gij-r3-KWy">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -111,12 +125,15 @@
                             </constraint>
                             <constraint firstItem="gij-r3-KWy" firstAttribute="top" secondItem="Nms-pP-Je5" secondAttribute="bottom" constant="26" id="CgO-7V-pER"/>
                             <constraint firstItem="gij-r3-KWy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Epb-fJ-BGX"/>
+                            <constraint firstItem="llI-QF-xGf" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Fzl-Ai-KUP"/>
+                            <constraint firstItem="llI-QF-xGf" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="IMb-nj-ef1"/>
                             <constraint firstItem="vuT-nC-KrR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="J9b-WY-nz7"/>
                             <constraint firstItem="XSW-64-TDd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Jmf-pZ-Jhw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Nms-pP-Je5" secondAttribute="trailing" constant="131" id="M2V-gS-oQa">
                                 <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="XSW-64-TDd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MzA-Cr-30I"/>
+                            <constraint firstItem="llI-QF-xGf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TRl-a3-8Lh"/>
                             <constraint firstItem="llI-QF-xGf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="UFM-6o-6eN"/>
                             <constraint firstItem="vuT-nC-KrR" firstAttribute="top" secondItem="XSW-64-TDd" secondAttribute="bottom" constant="24" id="gwo-ZE-RxY"/>
                             <constraint firstItem="gij-r3-KWy" firstAttribute="top" secondItem="llI-QF-xGf" secondAttribute="bottom" id="jZx-Em-vR4"/>
@@ -147,6 +164,9 @@
                                 <exclude reference="MzA-Cr-30I"/>
                                 <exclude reference="0SS-kL-OJJ"/>
                                 <exclude reference="7jT-Zu-Ixb"/>
+                                <exclude reference="Fzl-Ai-KUP"/>
+                                <exclude reference="IMb-nj-ef1"/>
+                                <exclude reference="TRl-a3-8Lh"/>
                                 <exclude reference="UFM-6o-6eN"/>
                                 <exclude reference="2Cc-yG-Th1"/>
                                 <exclude reference="J9b-WY-nz7"/>
@@ -179,9 +199,12 @@
                                 <include reference="9KP-Xc-wYN"/>
                                 <include reference="Jmf-pZ-Jhw"/>
                                 <include reference="MzA-Cr-30I"/>
-                                <include reference="0SS-kL-OJJ"/>
-                                <include reference="7jT-Zu-Ixb"/>
-                                <include reference="UFM-6o-6eN"/>
+                                <exclude reference="0SS-kL-OJJ"/>
+                                <exclude reference="7jT-Zu-Ixb"/>
+                                <include reference="Fzl-Ai-KUP"/>
+                                <include reference="IMb-nj-ef1"/>
+                                <include reference="TRl-a3-8Lh"/>
+                                <exclude reference="UFM-6o-6eN"/>
                                 <include reference="2Cc-yG-Th1"/>
                                 <exclude reference="J9b-WY-nz7"/>
                                 <include reference="gwo-ZE-RxY"/>
