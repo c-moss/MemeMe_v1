@@ -28,7 +28,7 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="vvl-VF-SCV"/>
-                                    <barButtonItem image="Camera" id="mfl-B5-pwi">
+                                    <barButtonItem systemItem="camera" id="mfl-B5-pwi">
                                         <connections>
                                             <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="zoF-x5-9kt"/>
                                         </connections>
@@ -51,14 +51,11 @@
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                                <connections>
-                                    <action selector="textFieldDidChange:" destination="BYZ-38-t0r" eventType="editingChanged" id="C9I-fG-5Gv"/>
-                                </connections>
                             </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XSW-64-TDd">
                                 <rect key="frame" x="134" y="0.0" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem title="Share" id="0q7-Sh-PFw">
+                                    <barButtonItem systemItem="action" id="0q7-Sh-PFw">
                                         <connections>
                                             <action selector="shareMeme:" destination="BYZ-38-t0r" id="Egs-ib-IdI"/>
                                         </connections>
@@ -107,7 +104,4 @@
             <point key="canvasLocation" x="682" y="361"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Camera" width="40" height="40"/>
-    </resources>
 </document>

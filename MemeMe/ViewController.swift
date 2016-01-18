@@ -21,6 +21,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var actionBar: UIToolbar!
     @IBOutlet weak var toolbar: UIToolbar!
     
+    // Maintain a reference to the current active text field so that we can check if it gets obscured by the keyboard
     var activeField: UITextField!
     
     override func viewDidLoad() {
@@ -33,10 +34,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        // hide the status bar when we come back to the view controller
+        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Fade)
+        
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         
-        var textAttributes = [String: AnyObject]()
         // Set some text attributes
+        var textAttributes = [String: AnyObject]()
         textAttributes[NSStrokeColorAttributeName] = UIColor.blackColor()
         textAttributes[NSForegroundColorAttributeName] = UIColor.whiteColor()
         textAttributes[NSFontAttributeName] = UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!
@@ -74,16 +78,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func pickAnImageFromAlbum(sender: UIBarButtonItem) {
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(pickerController, animated: true, completion: nil)
+        presentImagePicker(UIImagePickerControllerSourceType.PhotoLibrary)
     }
     
     @IBAction func pickAnImageFromCamera(sender: UIBarButtonItem) {
+        presentImagePicker(UIImagePickerControllerSourceType.Camera)
+    }
+    
+    /**
+     Present an image picker controller
+     - parameter sourceType: A UIImagePickerControllerSourceType specifying the source of the image picker
+     */
+    func presentImagePicker(sourceType: UIImagePickerControllerSourceType) {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
-        pickerController.sourceType = UIImagePickerControllerSourceType.Camera
+        pickerController.sourceType = sourceType
         self.presentViewController(pickerController, animated: true, completion: nil)
     }
     
@@ -120,20 +129,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    @IBAction func textFieldDidChange(sender: UITextField) {
-        UIView.animateWithDuration(0.1, animations: {() in
-            sender.invalidateIntrinsicContentSize()
-            print("tc")
-        })
-    }
-    
     /**
-     Determine whether editing should be allowed to end
+     Called when editing is about to end
      */
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
         // Clear the global reference for current active text field
         activeField = nil
         
+        // If the value of the text field is empty, revert to the default value for the text field
         if textField.text == "" {
             if textField == topLabel {
                 textField.text = defaultTopText
@@ -142,10 +145,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
         }
         
+        // Always return true - we don't have any situations where we'd want to prevent edit ending
         return true
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        // End editing (and hide the keyboard) when a touch is detected
         view.endEditing(true)
         super.touchesBegan(touches, withEvent: event)
     }
