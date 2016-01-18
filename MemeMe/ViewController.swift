@@ -149,6 +149,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return true
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        // End editing when user presses return
+        textField.endEditing(true)
+        return false
+    }
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         // End editing (and hide the keyboard) when a touch is detected
         view.endEditing(true)
