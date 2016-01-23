@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CreateMemeViewController.swift
 //  MemeMe
 //
 //  Created by Campbell Moss on 10/01/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     let defaultTopText = "TOP"
     let defaultBottomText = "BOTTOM"
@@ -66,6 +66,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         shareActivity.completionWithItemsHandler = { activity, success, items, error in
             self.save(memedImage)
             shareActivity.dismissViewControllerAnimated(true, completion: nil)
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
         self.presentViewController(shareActivity, animated: true, completion: nil)
     }
@@ -210,7 +211,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
      - parameter memedImage: UIImage representing the selected image with the meme text applied
      */
     func save(memedImage: UIImage) {
+        // Create the Meme object
         let meme = Meme(topText: topLabel.text, bottomText: bottomLabel.text, originalImage: imagePickerView.image!, memedImage: memedImage)
+        
+        // Add it to the memes array in the Application Delegate
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     /**
