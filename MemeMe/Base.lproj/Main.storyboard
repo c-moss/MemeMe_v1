@@ -104,6 +104,38 @@
             </objects>
             <point key="canvasLocation" x="3328" y="-705"/>
         </scene>
+        <!--Meme Detail View Controller-->
+        <scene sceneID="2US-8K-BFc">
+            <objects>
+                <viewController storyboardIdentifier="MemeDetailVC" id="SaN-vj-qfB" customClass="MemeDetailViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="63e-79-6O1"/>
+                        <viewControllerLayoutGuide type="bottom" id="kZi-C5-ePI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="axg-UP-PiF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q1h-vH-eZ2">
+                                <rect key="frame" x="180" y="236" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kZi-C5-ePI" firstAttribute="top" secondItem="Q1h-vH-eZ2" secondAttribute="bottom" id="4tT-hT-Hjd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Q1h-vH-eZ2" secondAttribute="trailing" id="Pak-OG-61h"/>
+                            <constraint firstItem="Q1h-vH-eZ2" firstAttribute="top" secondItem="63e-79-6O1" secondAttribute="bottom" id="qT1-9r-vF3"/>
+                            <constraint firstItem="Q1h-vH-eZ2" firstAttribute="leading" secondItem="axg-UP-PiF" secondAttribute="leadingMargin" id="uzR-go-owi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="memeDetailImage" destination="Q1h-vH-eZ2" id="6VE-dh-Kq7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VUx-TC-xcU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3334" y="144"/>
+        </scene>
         <!--Meme Table View Controller-->
         <scene sceneID="MWs-ps-kru">
             <objects>
@@ -155,8 +187,26 @@
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ap4-xu-21V">
+                                            <rect key="frame" x="39" y="8" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTx-w6-d87">
+                                            <rect key="frame" x="39" y="91" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <outlet property="bottomCellLabel" destination="TTx-w6-d87" id="v3U-cb-ASb"/>
+                                    <outlet property="topCellLabel" destination="ap4-xu-21V" id="1sB-eo-bGx"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>

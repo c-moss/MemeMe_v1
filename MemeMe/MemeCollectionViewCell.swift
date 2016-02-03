@@ -9,5 +9,12 @@
 import UIKit
 
 class MemeCollectionViewCell: UICollectionViewCell {
-        
+    
+    @IBOutlet weak var topCellLabel: UILabel!
+    @IBOutlet weak var bottomCellLabel: UILabel!
+    
+    func setText(topText: String, bottomText: String) {
+        topCellLabel.text = topText
+        bottomCellLabel.text = bottomText
+    }
 }

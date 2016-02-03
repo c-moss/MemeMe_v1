@@ -62,7 +62,7 @@ class MemeCollectionViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {        
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionViewCell", forIndexPath: indexPath) as! MemeCollectionViewCell
         let meme = memes[indexPath.item]
-        //cell.setText(meme.top, bottomString: meme.bottom)
+        cell.setText(meme.topText!, bottomText: meme.bottomText!)
         let imageView = UIImageView(image: meme.originalImage)
         cell.backgroundView = imageView
         
@@ -70,7 +70,14 @@ class MemeCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        //TODO: something
+        //Grab the DetailVC from Storyboard
+        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailVC") as! MemeDetailViewController
+        
+        //Populate view controller with data from the selected item
+        detailController.meme = self.memes[indexPath.row]
+        
+        //Present the view controller using navigation
+        self.navigationController!.pushViewController(detailController, animated: true)
     }
 
     // MARK: UICollectionViewDelegate
