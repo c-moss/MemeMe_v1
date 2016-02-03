@@ -218,6 +218,8 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme)
+        
+        appDelegate.saveMemes()
     }
     
     /**
