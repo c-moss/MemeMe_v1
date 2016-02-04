@@ -116,7 +116,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q1h-vH-eZ2">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q1h-vH-eZ2">
                                 <rect key="frame" x="180" y="236" width="240" height="128"/>
                             </imageView>
                         </subviews>
@@ -160,7 +160,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="9Gf-jZ-Mfa">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="c2X-ba-pSX"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="c2X-ba-pSX">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" id="euw-ss-Cnb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YY2-7a-KTX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -284,4 +288,7 @@
             <point key="canvasLocation" x="1678" y="-316"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="euw-ss-Cnb"/>
+    </inferredMetricsTieBreakers>
 </document>
