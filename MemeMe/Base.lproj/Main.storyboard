@@ -178,7 +178,8 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Bah-sW-jVr">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yfc-Ca-EbW">
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="yfc-Ca-EbW">
                             <size key="itemSize" width="120" height="120"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -192,24 +193,36 @@
                                     <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ap4-xu-21V">
-                                            <rect key="frame" x="39" y="8" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTx-w6-d87">
-                                            <rect key="frame" x="39" y="91" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jot-Sy-dav">
+                                            <rect key="frame" x="12" y="8" width="97" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="OQw-ni-MH8"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4oB-Ue-oth">
+                                            <rect key="frame" x="12" y="82" width="97" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="CdD-MW-rf8"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="jot-Sy-dav" firstAttribute="top" secondItem="Zv8-O3-tIf" secondAttribute="topMargin" id="Bl5-p7-3hb"/>
+                                    <constraint firstItem="jot-Sy-dav" firstAttribute="leading" secondItem="Zv8-O3-tIf" secondAttribute="leadingMargin" id="PK7-lM-w9L"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="4oB-Ue-oth" secondAttribute="trailing" id="cEm-qJ-wV6"/>
+                                    <constraint firstItem="4oB-Ue-oth" firstAttribute="leading" secondItem="Zv8-O3-tIf" secondAttribute="leadingMargin" id="dp9-Wg-CVp"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="jot-Sy-dav" secondAttribute="trailing" id="o03-P5-At9"/>
+                                    <constraint firstItem="4oB-Ue-oth" firstAttribute="bottom" secondItem="Zv8-O3-tIf" secondAttribute="bottomMargin" id="waH-oK-X0Z"/>
+                                </constraints>
                                 <connections>
-                                    <outlet property="bottomCellLabel" destination="TTx-w6-d87" id="v3U-cb-ASb"/>
-                                    <outlet property="topCellLabel" destination="ap4-xu-21V" id="1sB-eo-bGx"/>
+                                    <outlet property="bottomCellText" destination="4oB-Ue-oth" id="REa-eC-dP4"/>
+                                    <outlet property="topCellText" destination="jot-Sy-dav" id="cHm-NE-5RE"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -289,6 +302,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="euw-ss-Cnb"/>
+        <segue reference="BSu-6I-d0r"/>
     </inferredMetricsTieBreakers>
 </document>
