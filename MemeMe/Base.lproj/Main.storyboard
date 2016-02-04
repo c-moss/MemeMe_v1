@@ -136,7 +136,7 @@
             </objects>
             <point key="canvasLocation" x="3334" y="144"/>
         </scene>
-        <!--Meme Table View Controller-->
+        <!--Sent Memes-->
         <scene sceneID="MWs-ps-kru">
             <objects>
                 <tableViewController id="RuB-eH-6Jq" customClass="MemeTableViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -145,12 +145,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemeTableCell" id="1t5-dg-djb">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemeTableCell" textLabel="5m3-3l-XPl" style="IBUITableViewCellStyleDefault" id="1t5-dg-djb">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1t5-dg-djb" id="ZdG-vq-zLk">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5m3-3l-XPl">
+                                            <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -159,7 +168,7 @@
                             <outlet property="delegate" destination="RuB-eH-6Jq" id="tyT-L0-mMc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="9Gf-jZ-Mfa">
+                    <navigationItem key="navigationItem" title="Sent Memes" id="9Gf-jZ-Mfa">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="c2X-ba-pSX">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" id="euw-ss-Cnb"/>
@@ -171,7 +180,7 @@
             </objects>
             <point key="canvasLocation" x="2482" y="-997"/>
         </scene>
-        <!--Meme Collection View Controller-->
+        <!--Sent Memes-->
         <scene sceneID="NvU-f7-QZr">
             <objects>
                 <collectionViewController id="O5V-L5-Sdb" customClass="MemeCollectionViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -231,7 +240,7 @@
                             <outlet property="delegate" destination="O5V-L5-Sdb" id="Q53-lA-DYd"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="ONS-aU-3el">
+                    <navigationItem key="navigationItem" title="Sent Memes" id="ONS-aU-3el">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="5ip-cv-GXc">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" id="BSu-6I-d0r"/>
