@@ -271,11 +271,11 @@
             </objects>
             <point key="canvasLocation" x="666" y="-645"/>
         </scene>
-        <!--Table-->
+        <!--Navigation Controller-->
         <scene sceneID="oyp-pR-6RH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IzN-ke-gzM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Table" id="DbT-cN-NZx"/>
+                    <tabBarItem key="tabBarItem" title="" image="Table Icon" id="DbT-cN-NZx"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ISX-uh-oKS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -290,11 +290,11 @@
             </objects>
             <point key="canvasLocation" x="1670" y="-997"/>
         </scene>
-        <!--Collection-->
+        <!--Navigation Controller-->
         <scene sceneID="Mb1-nv-F6p">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eDc-H1-Cgo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Collection" id="SOt-iz-Cp9"/>
+                    <tabBarItem key="tabBarItem" title="" image="Collection Icon" id="SOt-iz-Cp9"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tzn-VA-iIj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -310,6 +310,10 @@
             <point key="canvasLocation" x="1678" y="-316"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Collection Icon" width="30" height="30"/>
+        <image name="Table Icon" width="30" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="BSu-6I-d0r"/>
     </inferredMetricsTieBreakers>
