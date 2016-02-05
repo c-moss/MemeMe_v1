@@ -64,9 +64,11 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         let memedImage = generateMemedImage()
         let shareActivity = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         shareActivity.completionWithItemsHandler = { activity, success, items, error in
-            self.save(memedImage)
-            shareActivity.dismissViewControllerAnimated(true, completion: nil)
-            self.dismissViewControllerAnimated(true, completion: nil)
+            if (success) {
+                self.save(memedImage)
+                shareActivity.dismissViewControllerAnimated(true, completion: nil)
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
         }
         self.presentViewController(shareActivity, animated: true, completion: nil)
     }
@@ -76,6 +78,7 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         bottomLabel.text = defaultBottomText
         imagePickerView.image = nil
         shareButton.enabled = false
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func pickAnImageFromAlbum(sender: UIBarButtonItem) {

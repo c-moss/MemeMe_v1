@@ -1,5 +1,5 @@
 //
-//  MemeTableViewController.swift
+//  SentMemesTableViewController.swift
 //  MemeMe
 //
 //  Created by Campbell Moss on 24/01/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MemeTableViewController: UITableViewController {
+class SentMemesTableViewController: UITableViewController {
     
     var memes: [Meme] {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes

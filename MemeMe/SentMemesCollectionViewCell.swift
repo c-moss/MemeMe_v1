@@ -1,5 +1,5 @@
 //
-//  MemeCollectionViewCell.swift
+//  SentMemesCollectionViewCell.swift
 //  MemeMe
 //
 //  Created by Campbell Moss on 24/01/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MemeCollectionViewCell: UICollectionViewCell {
+class SentMemesCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var topCellText: UITextField!
     @IBOutlet weak var bottomCellText: UITextField!
