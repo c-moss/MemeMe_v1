@@ -8,9 +8,9 @@
 
 import UIKit
 
-//private let reuseIdentifier = "Cell"
-
 class SentMemesCollectionViewController: UICollectionViewController {
+    
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     var memes: [Meme] {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
@@ -19,13 +19,30 @@ class SentMemesCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        //self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        setupFlowLayout()
+    }
+    
+    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+                setupFlowLayout()
+    }
+    
+    func setupFlowLayout() {
+        let space: CGFloat = 3.0
+        var dimension: CGFloat
+        let viewWidth = self.view.frame.size.width
+        let viewHeight = self.view.frame.size.height
+        if viewWidth < viewHeight { //portrait
+            dimension = (viewWidth - (2 * space)) / 3.0
+        } else {    //landscape
+            dimension = ((viewWidth - (2 * space)) / 5.0) - 2
+        }
+                
+        print("Setting up flow. Width: \(self.view.frame.size.width) vs \(self.collectionView!.frame.size.width), height: \(self.view.frame.size.height) vs \(self.collectionView!.frame.size.height). Dimension: \(dimension)")
+        
+        flowLayout.minimumInteritemSpacing = space
+        flowLayout.minimumLineSpacing = space
+        flowLayout.itemSize = CGSizeMake(dimension, dimension)
+        flowLayout.invalidateLayout()
     }
     
     override func viewWillAppear(animated: Bool) {
