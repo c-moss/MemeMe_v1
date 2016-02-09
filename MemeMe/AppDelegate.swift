@@ -37,11 +37,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /**
      Save memes to filesystem
      */
-    func saveMemes() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(memes, toFile: Meme.ArchiveURL.path!)
-        
-        if !isSuccessfulSave {
-            print("Failed to save memes")
+    func saveMemes(){
+        // Saving memes to disk can take a while, so dispatch it to another thread
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            NSKeyedArchiver.archiveRootObject(self.memes, toFile: Meme.ArchiveURL.path!)
         }
     }
 }
