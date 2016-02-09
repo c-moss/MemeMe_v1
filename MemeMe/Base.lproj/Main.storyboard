@@ -162,20 +162,44 @@
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                             <color key="backgroundColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </imageView>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ts5-q8-iTm">
+                                            <rect key="frame" x="72" y="77" width="97" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="Aql-mr-sWo"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dnp-20-hva">
+                                            <rect key="frame" x="72" y="0.0" width="97" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="kXn-jE-ows"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="JCN-L3-qzu" firstAttribute="width" secondItem="AA0-QV-j24" secondAttribute="width" multiplier="0.4" id="5qm-YY-mRw"/>
                                         <constraint firstItem="JCN-L3-qzu" firstAttribute="leading" secondItem="AA0-QV-j24" secondAttribute="leading" id="6gO-fe-X7l"/>
                                         <constraint firstItem="JCN-L3-qzu" firstAttribute="top" secondItem="AA0-QV-j24" secondAttribute="top" id="EKS-Pe-gbw"/>
+                                        <constraint firstItem="Ts5-q8-iTm" firstAttribute="leading" secondItem="JCN-L3-qzu" secondAttribute="leading" id="NNF-l3-NEX"/>
+                                        <constraint firstItem="Dnp-20-hva" firstAttribute="trailing" secondItem="JCN-L3-qzu" secondAttribute="trailing" id="RQd-NG-gDd"/>
                                         <constraint firstItem="tAV-H7-Gvw" firstAttribute="centerY" secondItem="AA0-QV-j24" secondAttribute="centerY" id="YMe-qE-Hgc"/>
+                                        <constraint firstItem="Dnp-20-hva" firstAttribute="top" secondItem="JCN-L3-qzu" secondAttribute="top" id="au5-S7-bAc"/>
+                                        <constraint firstItem="Dnp-20-hva" firstAttribute="leading" secondItem="JCN-L3-qzu" secondAttribute="leading" id="d9F-x3-hI3"/>
                                         <constraint firstAttribute="bottom" secondItem="JCN-L3-qzu" secondAttribute="bottom" id="gmc-70-v4F"/>
+                                        <constraint firstItem="Ts5-q8-iTm" firstAttribute="trailing" secondItem="JCN-L3-qzu" secondAttribute="trailing" id="i6j-Vy-MKv"/>
+                                        <constraint firstItem="Ts5-q8-iTm" firstAttribute="bottom" secondItem="JCN-L3-qzu" secondAttribute="bottom" id="jjs-ZR-SjT"/>
                                         <constraint firstItem="tAV-H7-Gvw" firstAttribute="leading" secondItem="JCN-L3-qzu" secondAttribute="trailing" constant="8" id="mD0-JF-THN"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="tAV-H7-Gvw" secondAttribute="trailing" constant="8" id="zIh-n4-5Qt"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="bottomCellText" destination="Ts5-q8-iTm" id="TkD-f7-h4E"/>
                                     <outlet property="memeTextLabel" destination="tAV-H7-Gvw" id="Ogk-mQ-cvl"/>
                                     <outlet property="memeThumbnailImage" destination="JCN-L3-qzu" id="93f-4X-hc9"/>
+                                    <outlet property="topCellText" destination="Dnp-20-hva" id="NcU-32-22T"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
