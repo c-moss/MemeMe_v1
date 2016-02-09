@@ -45,6 +45,9 @@ class SentMemesCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(animated: Bool) {
         collectionView?.reloadData()
+        if memes.count == 0 {
+            performSegueWithIdentifier("CreateMeme", sender: self)
+        }
     }
 
     // MARK: UICollectionViewDataSource

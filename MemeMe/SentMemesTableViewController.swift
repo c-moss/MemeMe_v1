@@ -16,6 +16,9 @@ class SentMemesTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         tableView.reloadData()
+        if memes.count == 0 {
+            performSegueWithIdentifier("CreateMeme", sender: self)
+        }
     }
 
     // MARK: - Table view data source

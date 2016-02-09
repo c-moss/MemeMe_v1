@@ -12,24 +12,31 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    //Array of memes
     var memes: [Meme] = [Meme]()
     
-     func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+    func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+        //load stored memes when the application starts
         if let savedMemes = loadMemes() {
             memes = savedMemes
         }
         return true
     }
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        return true
-    }
     
     // MARK: NSCoding
     
+    /**
+     Load memes from filesystem
+     - returns: An array of Meme objects
+     */
     func loadMemes() -> [Meme]? {
         return NSKeyedUnarchiver.unarchiveObjectWithFile(Meme.ArchiveURL.path!) as? [Meme]
     }
     
+    /**
+     Save memes to filesystem
+     */
     func saveMemes() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(memes, toFile: Meme.ArchiveURL.path!)
         

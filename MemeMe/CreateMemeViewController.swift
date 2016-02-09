@@ -78,7 +78,9 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         bottomLabel.text = defaultBottomText
         imagePickerView.image = nil
         shareButton.enabled = false
-        dismissViewControllerAnimated(true, completion: nil)
+        if (UIApplication.sharedApplication().delegate as! AppDelegate).memes.count > 0 {
+            dismissViewControllerAnimated(true, completion: nil)
+        }
     }
     
     @IBAction func pickAnImageFromAlbum(sender: UIBarButtonItem) {

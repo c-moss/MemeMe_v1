@@ -211,7 +211,7 @@
                     <navigationItem key="navigationItem" title="Sent Memes" id="9Gf-jZ-Mfa">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="c2X-ba-pSX">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" id="euw-ss-Cnb"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="CreateMeme" id="euw-ss-Cnb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -283,7 +283,7 @@
                     <navigationItem key="navigationItem" title="Sent Memes" id="ONS-aU-3el">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="5ip-cv-GXc">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" id="BSu-6I-d0r"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="CreateMeme" id="BSu-6I-d0r"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
