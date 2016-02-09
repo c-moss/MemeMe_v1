@@ -19,8 +19,6 @@ class SentMemesCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupFlowLayout()
     }
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
@@ -56,6 +54,11 @@ class SentMemesCollectionViewController: UICollectionViewController {
         if memes.count == 0 {
             performSegueWithIdentifier("CreateMeme", sender: self)
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        setupFlowLayout()
     }
 
     // MARK: UICollectionViewDataSource
