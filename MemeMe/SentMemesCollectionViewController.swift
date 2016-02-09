@@ -23,7 +23,7 @@ class SentMemesCollectionViewController: UICollectionViewController {
     }
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
-                setupFlowLayout()
+        setupFlowLayout()
     }
     
     func setupFlowLayout() {
