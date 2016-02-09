@@ -36,8 +36,7 @@ class SentMemesCollectionViewController: UICollectionViewController {
         } else {    //landscape
             dimension = ((viewWidth - (2 * space)) / 5.0) - 2
         }
-                
-        print("Setting up flow. Width: \(self.view.frame.size.width) vs \(self.collectionView!.frame.size.width), height: \(self.view.frame.size.height) vs \(self.collectionView!.frame.size.height). Dimension: \(dimension)")
+
         
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
@@ -46,7 +45,6 @@ class SentMemesCollectionViewController: UICollectionViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        print(memes.count)
         self.collectionView?.reloadData()
     }
 
