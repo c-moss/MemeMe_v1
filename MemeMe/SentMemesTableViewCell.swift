@@ -15,10 +15,9 @@ class SentMemesTableViewCell: UITableViewCell {
     @IBOutlet weak var topCellText: UITextField!
     @IBOutlet weak var bottomCellText: UITextField!
     
-    
     override func layoutSubviews() {
         super.layoutSubviews()
-        // Set some text attributes
+        // Set custom text attributes
         var textAttributes = [String: AnyObject]()
         textAttributes[NSStrokeColorAttributeName] = UIColor.blackColor()
         textAttributes[NSForegroundColorAttributeName] = UIColor.whiteColor()

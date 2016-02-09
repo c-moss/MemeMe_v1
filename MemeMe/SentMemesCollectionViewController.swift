@@ -12,6 +12,7 @@ class SentMemesCollectionViewController: UICollectionViewController {
     
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
+    // Access the memes array stored in the app delegate
     var memes: [Meme] {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
@@ -23,9 +24,13 @@ class SentMemesCollectionViewController: UICollectionViewController {
     }
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+        // Collection view flow needs to be reconfigured when device orientation changes
         setupFlowLayout()
     }
     
+    /**
+     Set up the flow layout for the collection view
+     */
     func setupFlowLayout() {
         let space: CGFloat = 3.0
         var dimension: CGFloat
@@ -44,7 +49,10 @@ class SentMemesCollectionViewController: UICollectionViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        // Reload the data to load any new memes
         collectionView?.reloadData()
+        
+        // If there aren't any memes yet, automatically show the Create Meme screen
         if memes.count == 0 {
             performSegueWithIdentifier("CreateMeme", sender: self)
         }
@@ -60,7 +68,8 @@ class SentMemesCollectionViewController: UICollectionViewController {
         return memes.count
     }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {        
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        // Retrieve meme from array and configure collection view cell
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SentMemesCollectionViewCell", forIndexPath: indexPath) as! SentMemesCollectionViewCell
         let meme = memes[indexPath.item]
         cell.setText(meme.topText!, bottomText: meme.bottomText!)

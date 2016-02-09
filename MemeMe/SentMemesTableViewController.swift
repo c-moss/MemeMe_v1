@@ -10,12 +10,16 @@ import UIKit
 
 class SentMemesTableViewController: UITableViewController {
     
+    // Access the memes array stored in the app delegate
     var memes: [Meme] {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
     
     override func viewWillAppear(animated: Bool) {
+        // Reload the data to load any new memes
         tableView.reloadData()
+        
+        // If there aren't any memes yet, automatically show the Create Meme screen
         if memes.count == 0 {
             performSegueWithIdentifier("CreateMeme", sender: self)
         }
@@ -32,10 +36,9 @@ class SentMemesTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // Retrieve meme from array and configure table view cell
         let cell:SentMemesTableViewCell = tableView.dequeueReusableCellWithIdentifier("SentMemesTableViewCell") as! SentMemesTableViewCell
         let meme = memes[indexPath.item]
-        
-        // Set the image and meme text
         cell.memeTextLabel!.text = "\(meme.topText!) \(meme.bottomText!)"
         cell.memeThumbnailImage!.image = meme.originalImage
         cell.topCellText!.text = meme.topText

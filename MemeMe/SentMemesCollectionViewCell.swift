@@ -14,7 +14,7 @@ class SentMemesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var bottomCellText: UITextField!
     
     func setText(topText: String, bottomText: String) {
-        // Set some text attributes
+        // Set custom text attributes
         var textAttributes = [String: AnyObject]()
         textAttributes[NSStrokeColorAttributeName] = UIColor.blackColor()
         textAttributes[NSForegroundColorAttributeName] = UIColor.whiteColor()

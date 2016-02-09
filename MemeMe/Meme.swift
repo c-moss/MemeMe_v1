@@ -13,6 +13,7 @@ class Meme: NSObject, NSCoding {
     
     // MARK: Types
     
+    // struct defining the keys used for data persistence
     struct PropertyKey {
         static let topTextKey = "topText"
         static let bottomTextKey = "bottomText"
@@ -22,7 +23,10 @@ class Meme: NSObject, NSCoding {
     
     // MARK: Archiving Paths
     
+    // Path to the location that memes will be persisted to
     static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+    
+    // File that memes will be persisted to
     static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("memes")
     
     var topText: String?
@@ -30,6 +34,13 @@ class Meme: NSObject, NSCoding {
     var originalImage: UIImage?
     var memedImage: UIImage?
     
+    /**
+     Initialize meme with provided parameters
+     - parameter topText: Top text label
+     - parameter bottomText: Bottom text label
+     - parameter originalImage: UIImage representing the original image that this meme was created from
+     - parameter memedImage: UIImage representing the image with meme text applied
+     */
     init(topText: String?, bottomText: String?, originalImage: UIImage?, memedImage: UIImage?) {
         self.topText = topText
         self.bottomText = bottomText
@@ -39,6 +50,9 @@ class Meme: NSObject, NSCoding {
         super.init()
     }
     
+    /**
+     Initialize meme from persistence store
+     */
     required convenience init?(coder aDecoder: NSCoder) {
         let topText = aDecoder.decodeObjectForKey(PropertyKey.topTextKey) as? String
         let bottomText = aDecoder.decodeObjectForKey(PropertyKey.bottomTextKey) as? String
