@@ -34,10 +34,9 @@ class SentMemesCollectionViewController: UICollectionViewController {
         if viewWidth < viewHeight { //portrait
             dimension = (viewWidth - (2 * space)) / 3.0
         } else {    //landscape
-            dimension = ((viewWidth - (2 * space)) / 5.0) - 2
+            dimension = ((viewWidth - (2 * space)) / 5.0) - 2 //need to reduce dimension by 2, otherwise it overflows onto the next row for some reason
         }
 
-        
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSizeMake(dimension, dimension)

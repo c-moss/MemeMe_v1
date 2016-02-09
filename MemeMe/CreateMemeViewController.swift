@@ -70,7 +70,7 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
-        self.presentViewController(shareActivity, animated: true, completion: nil)
+        presentViewController(shareActivity, animated: true, completion: nil)
     }
 
     @IBAction func cancel(sender: UIBarButtonItem) {
@@ -78,7 +78,7 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         bottomLabel.text = defaultBottomText
         imagePickerView.image = nil
         shareButton.enabled = false
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func pickAnImageFromAlbum(sender: UIBarButtonItem) {
